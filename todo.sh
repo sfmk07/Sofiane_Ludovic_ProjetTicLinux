@@ -19,11 +19,20 @@ while true; do
             ;;
         2)
             read -p "Entrez le numéro de la tâche à supprimer : " numero
+            
             if [ "$(sed -n "${numero}p" tasks.txt)" ]; then
                 sed -i "${numero}d" tasks.txt
                 echo "Tâche supprimée avec succès !"
             else
                 echo "La tâche n'existe pas."
+            fi
+            ;;
+        3)
+            if [ -s tasks.txt ]; then
+                echo "Voici la liste des tâches :"
+                cat tasks.txt
+            else
+                echo "Il n'y a pas de tâches à afficher."
             fi
             ;;
     esac
