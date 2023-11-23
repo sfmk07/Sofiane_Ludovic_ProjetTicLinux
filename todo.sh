@@ -39,5 +39,9 @@ while true; do
             echo "Au revoir !"
             exit 0
             ;;
+        *)
+            echo "Choix invalide."
+            ;;
+
     esac
 done
