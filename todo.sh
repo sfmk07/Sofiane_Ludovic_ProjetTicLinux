@@ -8,6 +8,7 @@ while true; do #On rentre dans la boucle des choix et le travail se fait dedans.
     echo "2. Supprimer une tâche"
     echo "3. Afficher les tâches"
     echo "4. Quitter"
+    echo "5. Effacement de la liste"
 
     read -p "Entrez votre choix : " choix
 
@@ -39,9 +40,14 @@ while true; do #On rentre dans la boucle des choix et le travail se fait dedans.
             echo "Au revoir !"
             exit 0
             ;;
+        5) #L'effaceur
+            echo "Effacement en cours.."
+            echo "" > tasks.txt
+            echo "Liste effacée avec succès !"
+            ;;
         *)
             echo "Choix invalide."
             ;;
-
+        
     esac
 done
