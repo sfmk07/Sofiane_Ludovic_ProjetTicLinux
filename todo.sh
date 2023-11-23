@@ -17,5 +17,14 @@ while true; do
             echo "$description" >> tasks.txt
             echo "Tâche ajoutée avec succès !"
             ;;
+        2)
+            read -p "Entrez le numéro de la tâche à supprimer : " numero
+            if [ "$(sed -n "${numero}p" tasks.txt)" ]; then
+                sed -i "${numero}d" tasks.txt
+                echo "Tâche supprimée avec succès !"
+            else
+                echo "La tâche n'existe pas."
+            fi
+            ;;
     esac
 done
