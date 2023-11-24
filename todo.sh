@@ -66,28 +66,37 @@ while true; do #On rentre dans la boucle des choix et le travail se fait dedans.
         6) #Modifier une tâche
             if [ -s tasks.txt ]; then
                 # Cette ligne modifie la tâche introduite par l'utilisateur et l'enregistre dans tasks.txt.
+                echo "~~~~~~~~~~~~"
                 echo "Liste des tâches :"
                 cat -n tasks.txt
+                echo "--------"
                 read -p "Entrez le numéro de la tâche à modifier :" numero
                 read -p "Entrez la nouvelle tâche :" new_tache
+                echo "-----------"
                 # if numero >0 , on ajoute la tache introduite et juste après on va supprimer la ligne suivante car
                 # quand on avait ajouté la nouvelle tâche, les données dans tasks.txt ont déjà passé à la ligne suivante
                 if [ "$numero" -gt 0 ] 2>/dev/null; then
                     sed -i "${numero}i${new_tache}" tasks.txt
                     ((numero=numero +1))
-                    sed -i "${numero}d" tasks.txt                
+                    sed -i "${numero}d" tasks.txt
+                    echo "~~~~~~~~~~~~~~"
                     echo "Tâche modifiée."
+                    echo "~~~~~~~~~~~~~~"
                 else
+                    echo "~~~~~~~~~~~~"
                     echo "Numéro de tâche invalide."
+                    echo "~~~~~~~~~~~~"
                 fi
             else
+                echo "~~~~~~~~~~~"
                 echo "La liste des tâches est vide."
+                echo "~~~~~~~~~~~"
             fi
             ;;
         *)
-            echo "---------------"
+            echo "~~~~~~~~~~~~"
             echo "Choix invalide."
-            echo "---------------"
+            echo "~~~~~~~~~~~~"
             ;;
         
     esac
