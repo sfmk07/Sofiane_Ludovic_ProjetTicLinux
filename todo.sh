@@ -26,9 +26,10 @@ while true; do #On rentre dans la boucle des choix et le travail se fait dedans.
             ;;
         2) #Suppresion
             echo "--------------"
+            cat tasks.txt
             read -p "Entrez le numéro de la tâche à supprimer : " numero
             if [ "$(sed -n "${numero}p" tasks.txt)" ]; then
-                sed -i "${numero}d" tasks.txt #Sed fait la recherche du nombre encodé et la supprime.
+                sed -i "${numero}d" tasks.txt #Sed fait la recherche du nombre encodé et la supprime. 
                 echo "~~~~~~~~~~~"
                 echo "Tâche supprimée avec succès !"
                 echo "~~~~~~~~~~~"
